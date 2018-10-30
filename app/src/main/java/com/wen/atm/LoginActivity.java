@@ -16,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
         String userid = ((EditText)findViewById(R.id.userid)).getText().toString();
         String password =((EditText)findViewById(R.id.password)).getText().toString();
         if ("yuwen1227".equals(userid) && "8787".equals(password)){
+            setResult(RESULT_OK);
             finish();
         }
 
