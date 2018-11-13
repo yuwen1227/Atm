@@ -9,27 +9,28 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
-
+    EditText eduserid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        eduserid = findViewById(R.id.userid);
+        String userid = getSharedPreferences("atm",MODE_PRIVATE)
+                .getString("USERID"," ");
+        eduserid.setText(userid);
+
     }
     public void login(View view){
         String userid = ((EditText)findViewById(R.id.userid)).getText().toString();
         String password =((EditText)findViewById(R.id.password)).getText().toString();
         if ("yuwen1227".equals(userid) && "8787".equals(password)){
+            getSharedPreferences("atm",MODE_PRIVATE)
+                    .edit()
+                    .putString("USERID",userid)
+                    .apply();
             setResult(RESULT_OK);
             finish();
-          new AlertDialog.Builder(this).setMessage("error")
-                  .setTitle("Error!!!!")
-                  .setMessage("Your Username or Password is incorrect")
-                  .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                      @Override
-                      public void onClick(DialogInterface dialog, int which) {
 
-                      }
-                  })
         }
 
     }
