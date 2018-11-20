@@ -8,14 +8,14 @@ import android.widget.EdgeEffect;
 import android.widget.EditText;
 
 public class NickNameActivity extends AppCompatActivity {
-
+    EditText ednickname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nick_name);
     }
     public void next(View view){
-        EditText ednickname = findViewById(R.id.ed_nickname);
+        ednickname = findViewById(R.id.ed_nickname);
         String nickname = ednickname.getText().toString();
         getSharedPreferences("user",MODE_PRIVATE)
                 .edit()

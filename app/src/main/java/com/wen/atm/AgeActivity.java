@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.EditText;
 
 public class AgeActivity extends AppCompatActivity {
-
+    EditText edage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_age);
     }
     public void next(View view){
-        EditText edage = findViewById(R.id.ed_age);
+        edage = findViewById(R.id.ed_age);
         String age = edage.getText().toString();
         getSharedPreferences("age",MODE_PRIVATE)
                 .edit()
