@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EdgeEffect;
 import android.widget.EditText;
 
-public class NickNameActivity extends AppCompatActivity {
+public class NickNameActivity extends BaseActivity {
     EditText ednickname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
