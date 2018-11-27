@@ -3,7 +3,13 @@ package com.wen.atm;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends BaseActivity {
     private static final int RC_LOGIN = 8787;
@@ -15,9 +21,12 @@ public class MainActivity extends BaseActivity {
         if(!logon){
             Intent intent = new Intent(this,LoginActivity.class);
             startActivityForResult(intent,RC_LOGIN);
-
-
         }
+        //data
+        List<String> fruits = Arrays.asList("香蕉","蘋果","草莓");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,fruits);
+        ListView listView = findViewById(R.id.list);
+        listView.setAdapter(adapter);
     }
 
     @Override
@@ -28,6 +37,16 @@ public class MainActivity extends BaseActivity {
                 finish();
             }else{
                 logon = true;
+                if(!user.isValid()){
+                    Intent nickname = new Intent(this, NickNameActivity.class);
+                    startActivity(nickname);
+                }
+            }
+        }
+    }
+}
+
+                /*
                 String nickname = getSharedPreferences("user",MODE_PRIVATE)
                         .getString("NICKNAME",null);
                 int age = getSharedPreferences("user",MODE_PRIVATE)
@@ -38,9 +57,6 @@ public class MainActivity extends BaseActivity {
                     //TODO: check nickname,age,gender exist
                     Intent nick = new Intent(this, NickNameActivity.class);
                     startActivity(nick);
-                }
-            }
-        }
-    }
-}
+                    */
+
 

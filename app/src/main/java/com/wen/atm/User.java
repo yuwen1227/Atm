@@ -11,9 +11,6 @@ public class User {
     String gender;
     SharedPreferences settings;
     String address;
-
-
-
     boolean valid = false;
 
     public User(Context context){
@@ -59,7 +56,7 @@ public class User {
         return gender;
     }
     public boolean isValid(){
-        valid = getNickname() != null && age != 0 && gender != null;
+        valid = getNickname() != null && getAge()!= 0 && getGender() != null;
         return valid;
     }
     public void setGender(String gender) {
@@ -72,6 +69,7 @@ public class User {
     }
 
     public void setAddress(String address) {
+
         this.address = address;
     }
 }

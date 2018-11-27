@@ -16,12 +16,13 @@ public class GenderActivity extends BaseActivity {
     public void next(View view){
         edgender = findViewById(R.id.ed_gender);
         String gender = edgender.getText().toString();
-        getSharedPreferences("gender",MODE_PRIVATE)
+        user.setGender(gender);
+       /* getSharedPreferences("gender",MODE_PRIVATE)
                 .edit()
                 .putString("GENDER",gender)
                 .apply();
+                */
         Intent intent = new Intent(this,MainActivity.class);
-
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
